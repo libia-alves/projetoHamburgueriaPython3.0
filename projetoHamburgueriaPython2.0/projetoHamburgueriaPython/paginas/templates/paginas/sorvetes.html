@@ -1,0 +1,11 @@
+{% extends 'base.html' %}
+{% block content %}
+    <h1>Sorvetes</h1>
+    {% for sorvete in sorvetes %}
+        <div>
+            <h2>{{ sorvete.name }}</h2>
+            <p>Preço: R$ {{ sorvete.price }}</p>
+            <!-- Adicione um formulário para adicionar ao carrinho -->
+        </div>
+    {% endfor %}
+{% endblock %}

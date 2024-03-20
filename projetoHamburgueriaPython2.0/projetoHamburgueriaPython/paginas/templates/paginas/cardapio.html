@@ -1,0 +1,64 @@
+{% extends 'paginas/teste.html' %}
+
+
+{% load static%}
+
+
+{% block content %} 
+
+    <!-- SECCION SABORES -->
+    <section id="sabores">
+        <h2>Sabores</h2>
+        <div class="fila">
+           
+           
+       
+            <div class="item">
+                <div class="icono">
+                    <img src="{% static "img/bebidasfofinhas.jpg" %}" alt="">
+                </div>
+                <div class="info">
+                    <h3>Bebidas</h3>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+                </div>
+            </div>
+            <div class="item">
+                <div class="icono">
+                    <img src="{% static "img/sabor3.png" %}" alt="">
+                </div>
+                <div class="info">
+                    <h3>Hamburguers, nossa especialidade da casa</h3>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="fila">
+            
+           
+            <div class="item">
+                <div class="icono">
+                    <img src="{% static "img/sabor5.png" %}" alt="">
+                </div>
+                <div class="info">
+                    <h3><a href="{% url 'pratos'%}" onclick="seleccionar()">Pratos </a></h3>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+                </div>
+            </div>
+
+            <div class="item">
+                <div class="icono">
+                    <img src="{% static "img/sabor4.png" %}" alt="">
+                </div>
+                <div class="info">
+                    <h3>Sorvetes e Doces</h3>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+                </div>
+            </div>
+           
+        </div>
+
+        <button>Ver Más</button>
+
+    </section>
+ {%endblock%}

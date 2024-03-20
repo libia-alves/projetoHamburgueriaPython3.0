@@ -1,0 +1,39 @@
+{% extends 'paginas/teste.html' %}
+
+
+{% load static%}
+
+
+{% block content %} 
+
+<br> <br> <br>
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Perfil</title>
+  <link rel="stylesheet" href="{% static 'css/perfil.css' %}">
+</head>
+<body>
+  <div class="profile-container">
+    <div class="profile-header">
+      <h1>Nome do Usuário</h1>
+      <p>Email: usuario@email.com</p>
+    </div>
+    <div class="profile-content">
+      <h2>Informações Pessoais</h2>
+      <ul>
+        <li><strong>Nome:</strong> Nome do Usuário</li>
+        <li><strong>Email:</strong> usuario@email.com</li>
+        <li><strong>Idade:</strong> 30 anos</li>
+        <li><strong>País:</strong> Brasil</li>
+      </ul>
+    </div>
+  </div>
+</body>
+</html>
+
+<br> <br> <br>
+
+ {%endblock%}
