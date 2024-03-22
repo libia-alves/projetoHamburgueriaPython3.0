@@ -10,11 +10,11 @@ from .models import Perfil
 class UsuarioCreate(CreateView):
     template_name = "usuarios/login.html"
     form_class = UsuarioForm
-    success_url = reverse_lazy('login')
+    success_url = reverse_lazy('restrito')
 
     def form_valid(self, form):
 
-        grupo = get_object_or_404(Group, name="Docente")
+        grupo = get_object_or_404(Group, name="login")
 
         url = super().form_valid(form)
 
@@ -32,10 +32,9 @@ class UsuarioCreate(CreateView):
         context['botao'] = "Cadastrar"
 
         return context
-
     
 class PerfilUpdate(UpdateView):
-    template_name = "cadastros/form.html"
+    template_name = "usuarios/login.html"
     model = Perfil
     fields = ["nome_completo", "cpf", "telefone"]
     success_url = reverse_lazy("index")

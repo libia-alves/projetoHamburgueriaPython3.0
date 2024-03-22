@@ -7,7 +7,9 @@ from django.shortcuts import render
 def home(request):
     return render(request, "paginas/index.html") 
     
-
+def restrito(request):
+    return render(request, "paginas/restrito.html") 
+    
 
 
 def cardapio(request):

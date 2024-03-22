@@ -16,7 +16,7 @@ class ProdutoCreate(CreateView):
     
 class CarrinhoCreate(CreateView):
     model=Carrinhos
-    fields=['qtde','categoria', 'Preco','form','produto']
+    fields=['qtde','categoria','form','produto']
     template_name='cadastros/form.html'
     success_url=reverse_lazy('index')
     
@@ -33,7 +33,7 @@ class ProdutoUpdate(UpdateView):
     
 class CarrinhoUpdate(UpdateView):
     model=Carrinhos
-    fields=['qtde','categoria', 'Preco', 'form', 'produto']
+    fields=['qtde','categoria', 'form', 'produto']
     template_name='cadastros/form.html'
     success_url=reverse_lazy('index')
     

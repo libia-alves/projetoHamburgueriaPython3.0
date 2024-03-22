@@ -33,28 +33,40 @@
                                 <span>Inicio</span>
                             </a>
                         </li>
-                  
-                         <li>
-                            <a href="{% url 'registrar'%}" onclick="seleccionar()">
-                                <i class="fa-solid fa-comments"></i>
-                                <span>Registrar</span>
+                        <li>
+                            <a href="{% url 'cardapio' %}" onclick="seleccionar()">
+                                <i class="fa-solid fa-ice-cream"></i>
+                                <span>Cardapio</span>
                             </a>
                         </li>
+                   
+                        <li>
+                            <a href="{% url 'perfil'%}" onclick="seleccionar()">
+                                <i class="fa-solid fa-pen"></i>
+                                <span>Perfil</span>
+                            </a>
+                        </li>
+                       
 
-                    
+                        <li>
+                            <a href="{% url 'carrinho'%}" onclick="seleccionar()">
+                                <i class="fa-solid fa-comments"></i>
+                                <span>Carrinho</span>
+                            </a>
+                        </li>
                         <li>
                             <a href="{% url 'login'%}" onclick="seleccionar()">
                                 <i class="fa-solid fa-comments"></i>
                                 <span>Login</span>
                             </a>
                         </li>
-                        
-                        <li>
+                         <li>
                             <a href="{% url 'logout'%}" onclick="seleccionar()">
                                 <i class="fa-solid fa-comments"></i>
                                 <span>Sair</span>
                             </a>
                         </li>
+                    
                     </ul>
                 </nav>
                 <div class="social">

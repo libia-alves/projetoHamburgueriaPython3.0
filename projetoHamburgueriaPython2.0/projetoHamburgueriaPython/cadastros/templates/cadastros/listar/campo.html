@@ -10,71 +10,61 @@
         <title>Carrinho</title>
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.2.1/dist/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">    </head>
-
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.2.1/dist/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+    <style>
+        body {
+            padding-top: 60px;
+            background-color: #f8f9fa;
+        }
+        .table-responsive {
+            margin-top: 20px;
+        }
+    </style>
     </head>
     <body>
-
-
-       {% block menu%}
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
-  <a class="navbar-brand" href="{%url 'index'%}">Principal</a>
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon"></span>
-  </button>
-  <div class="collapse navbar-collapse" id="navbarNavDropdown">
-    <ul class="navbar-nav">
-      <li class="nav-item active">
-        <a class="nav-link" href="{%url 'cadastrar-carrinhos'%}">cadastrar <span class="sr-only">(current)</span></a>
-      </li>
-  
-      <li class="nav-item dropdown">
-        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-         Listar informações
-        </a>
-        <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-          <a class="dropdown-item" href="{%url 'listar-carrinhos'%}"> Listar carrinho</a>
-          <a class="dropdown-item" href="#"> Listar atividade</a>
-          <a class="dropdown-item" href="#"> Listar carrinho</a>
+      <div class="container mt-4">
+        <h3>Listar carrinho de dados</h3>
+        <hr>
+        <div class='table-responsive'>
+            <table class='table table-striped'>
+                <thead>
+                    <tr>
+                        <th>Id</th>
+                        <th>Nome</th>
+                        <th>Descrição</th>
+                        <th>Opções</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>1</td>
+                        <td>Hamburguer Tradicional</td>
+                        <td>Delicioso hambúrguer com carne, queijo, alface, tomate e molho especial.</td>
+                        <td>
+                            <button type="button" class="btn btn-warning btn-sm edit-btn">Editar</button>
+                            <button type="button" class="btn btn-danger btn-sm delete-btn">Excluir</button>
+                        </td>
+                    </tr>
+                    <!-- Adicione mais linhas conforme necessário -->
+                </tbody>
+            </table>
         </div>
-      </li>
-    </ul>
-  </div>
-</nav> 
-        {% endblock %}
+    </div>
+    
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <script>
+    $(document).ready(function(){
+        // Função para manipular o evento de clique no botão "Excluir"
+        $('.delete-btn').click(function(){
+            // Encontra o elemento pai <tr> e o remove
+            $(this).closest('tr').remove();
+        });
+    
+        // Função para manipular o evento de clique no botão "Editar"
+        $('.edit-btn').click(function(){
+            // Implemente sua lógica de edição aqui
+            $(this).closest('tr').update();
+        });
+    });
+    </script>
 
-{% block conteudo %}
-<h3> Listar carrinho de dados
-    <hr>
-<div class='table-responsive'>
-    <table class='table table-strinped'>
-      <tr>
-      <th> Id</th>
-      <th> Nome</th>
-      <th> descrição</th>
-      <th> opção</th>
-      </tr>
-
-      {%for carrinho in object_list%}
-     
-      <tr>
-        <td>{{carrinho.nome}}</td>
-        <td>{{carrinho.descricao}}</td>
-         <td> 
-           <a href="{%url 'editar-carrinhos' carrinho.pk%}"
-            class="btn btn-warning btn-sm"> Edital</a>
-        </td>        
-     <td> 
-          <a href="{%url 'excluir-carrinhos' carrinho.pk%}" 
-          class="btn btn-warning btn-sm"> Excluir</a>
-        </td>
-       </tr>
-       {% empty%}
-       <tr>
-        <td> nenhum registro foi encotrado</td>
-       </tr>
-       {% endfor %}
-    </table> 
-</div> 
-
-{% endblock  %}
