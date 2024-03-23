@@ -1,11 +1,45 @@
-{% extends 'base.html' %}
-{% block content %}
-    <h1>Bebidas</h1>
-    {% for bebida in bebidas %}
-        <div>
-            <h2>{{ bebida.name }}</h2>
-            <p>Preço: R$ {{ bebida.price }}</p>
-            <!-- Adicione um formulário para adicionar ao carrinho -->
+{% extends 'paginas/teste.html' %}
+
+
+{% load static%}
+
+
+{% block content %} 
+
+<section id="platos">
+    <h2>Pratos</h2>
+
+    <div class="fila">
+        <div class="item">
+            <img src="{% static "img/plato1.jpg" %} " alt="">
+            <p><a href="{%url 'cadastrar-carrinhos'%}">Frango frito pimentas e asas em um prato</a></p>
         </div>
-    {% endfor %}
-{% endblock %}
+        <div class="item">
+            <img src="{% static "img/plato2.jpg" %}" alt="">
+            <p><a href="{%url 'cadastrar-carrinhos'%}">Prato de salada de peixe</a></p>
+        </div>
+        <div class="item">
+            <img src="{% static "img/plato3.jpg" %}" alt="">
+            <p><a href="{%url 'cadastrar-carrinhos'%}">Prato de carne assada servido no prato branco<a/></p>
+        </div>
+    </div>
+    <div class="fila">
+        <div class="item">
+            <img src="{% static "img/plato4.jpg" %}" alt="">
+            <p><a href="{%url 'cadastrar-carrinhos'%}">Prato de Bife Grelhado com Batatas Frias<a/></p>
+        </div>
+        <div class="item">
+            <img src="{% static "img/plato5.jpg" %}" alt="">
+            <p><a href="{%url 'cadastrar-carrinhos'%}">Prato de Pizza com Rúcula<a/></p>
+        </div>
+        <div class="item">
+            <img src="{% static "img/plato6.jpg" %}" alt="">
+            <p><a href="{%url 'cadastrar-carrinhos'%}">Prato de Massa com Tuco<a/></p>
+        </div>
+    </div>
+
+    
+
+</section>
+
+ {%endblock%}

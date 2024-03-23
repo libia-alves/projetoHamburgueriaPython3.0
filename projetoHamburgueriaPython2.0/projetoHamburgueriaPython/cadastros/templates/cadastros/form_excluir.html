@@ -1,24 +1,178 @@
 {%load static%}
    
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Burguer Grill</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://unpkg.com/flickity@2/dist/flickity.min.css">
+    <link rel="stylesheet" href="index.css">
+    <link rel="stylesheet" href="{% static 'css/index.css' %}">
+    <style> 
+      .container {
+        margin-top: 50px;
+    }
+    
+    .row {
+        display: flex;
+        justify-content: center;
+    }
+    
+    .col-md-6 {
+        text-align: center;
+    }
+    
+    .form-table {
+        width: 100%;
+    }
+    
+    .form-table th {
+        text-align: center;
+        padding: 10px;
+    }
+    
+    .form-table td {
+        padding: 10px;
+    }
+    
+    /* Estilo personalizado para o botão de excluir */
+    .btn-excluir {
+        background-color: #dc3545;
+        border-color: #dc3545;
+        color: #fff; /* Definindo a cor do texto como branco */
+    }
+    
+    .btn-excluir:hover {
+        background-color: #c82333;
+        border-radius: 13px;
+    }
 
-    {% block conteudo%}
-    <h3> Excluir registro</h3>
-    <p class='lead'>
-      Confirme para excluir registro.
-    </p>
-    <form action="" method='post'>
-      <hr>
-        <p>
-          Deseja excluir o registro:{{object}}
-       </p>
-       {% csrf_token %}
+    
+    </style>
 
-        {{form.as_p}}
-        <button type='submit' class="btn btn-danger">Excluir</button>
+</head>
+<body>
+    <!-- SECCION INICIO -->
+
+    
+    <section id="inicio">
+        <header>
+            <div class="contenido-header">
+                <div class="logo">
+                    <h1>Burguer Grill</h1>
+                </div>
+                <nav id="nav">
+                    <ul>
+                        <li>
+                            <a href="{% url 'index' %}">
+                                <i class="fa-solid fa-house"></i>
+                                <span>Inicio</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="{% url 'cardapio' %}" onclick="seleccionar()">
+                                <i class="fa-solid fa-ice-cream"></i>
+                                <span>Cardapio</span>
+                            </a>
+                        </li>
+                        </li>
+                        <li>
+                            <a href="{% url 'perfil'%}" onclick="seleccionar()">
+                                <i class="fa-solid fa-pen"></i>
+                                <span>Perfil</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="{% url 'login'%}" onclick="seleccionar()">
+                                <i class="fa-solid fa-comments"></i>
+                                <span>Login</span>
+                            </a>
+                        </li>
+                    </ul>
+                </nav>
+                <div class="social">
+                    <a href="tel:+1123-456-7890">
+                        <i class="fa-solid fa-phone"></i>+1123-456-7890
+                    </a>
+                    <a href=""><i class="fa-brands fa-instagram"></i></a>
+                    <a href=""><i class="fa-brands fa-twitter"></i></a> 
+                </div>
+                <div class="nav-responsive" id="bar" onclick="mostrarOcultarMenu()">
+                    <i class="fa-solid fa-bars"></i>
+                </div>
+            </div>
+        </header>
+
+
+        {% block conteudo %}
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6">
+                    <h3>Excluir Registro</h3>
+                    <p class="lead">Confirme para excluir registro.</p>
+                    <hr>
+                    <form action="" method="post">
+                        <table class="form-table">
+                            <tr>
+                                <th>Deseja excluir o registro:</th>
+                                <td>{{ object }}</td>
+                            </tr>
+                            <tr>
+                                <td colspan="2">
+                                    {% csrf_token %}
+                                    {{ form.as_p }}
+                                    <button type="submit" class="btn btn-excluir">Excluir</button>
+                                </td>
+                            </tr>
+                        </table>
+                    </form>
+                </div>
+            </div>
+        </div>
+        {% endblock %}
         
-    </form>
 
-    {%endblock%}
+
+    
+    <br>
+    <br>
+
+    <section id="contacto">
+      <div class="fila">
+          <div class="col">
+              <h1>Burguer Grill</h1>
+          </div>
+          <div class="col">
+              <h3>Menu</h3>
+              <a href="#inicio">Inicio</a>
+              <a href="#sabores">Sabores</a>
+              <a href="#sabores">Pratos</a>
+              <a href="#sabores">Blog</a>
+          </div>
+          <div class="col">
+              <h3>Cheffs</h3>
+              <a href="#">Marcos G.</a>
+              <a href="#">María L.</a>
+              <a href="#">Marta J.</a>
+          </div>
+          <div class="col">
+              <h3>Social Media</h3>
+              <div class="media">
+                  <i class="fa-brands fa-twitter"></i> <a href="#">Twitter</a>
+              </div>
+              <div class="media">
+                  <i class="fa-brands fa-instagram"></i> <a href="#">Instagram</a>
+              </div>
+          </div>
+          <div class="col">
+              <h3>Contacto</h3>
+              <input type="text" placeholder="Tu correo">
+              <input type="submit" class="enviar">
+          </div>
+      </div>
 
       
     </body>

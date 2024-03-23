@@ -18,7 +18,7 @@ class CarrinhoCreate(CreateView):
     model=Carrinhos
     fields=['qtde','categoria','form','produto']
     template_name='cadastros/form.html'
-    success_url=reverse_lazy('index')
+    success_url=reverse_lazy('restrito')
     
     
  
@@ -35,7 +35,7 @@ class CarrinhoUpdate(UpdateView):
     model=Carrinhos
     fields=['qtde','categoria', 'form', 'produto']
     template_name='cadastros/form.html'
-    success_url=reverse_lazy('index')
+    success_url=reverse_lazy('restrito')
     
 
 
@@ -47,7 +47,7 @@ class ProdutoDelete(DeleteView):
 class CarrinhoDelete(DeleteView):
       model=Carrinhos
       template_name='cadastros/form_excluir.html'
-      success_url=reverse_lazy('index')   
+      success_url=reverse_lazy('restrito')   
  
 
 class ProdutoListView(ListView):
